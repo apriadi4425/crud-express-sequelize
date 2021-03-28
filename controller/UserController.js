@@ -90,7 +90,7 @@ exports.UpdateUser = (req, res) => {
         .then(() => {
             res.send({
                 status : 200,
-                message : 'Berhasil mengubah'
+                message : 'Berhasil mengubah user'
             })
         }).catch(err => {
             res.send({
