@@ -49,3 +49,18 @@ exports.SingIn = async (req, res) => {
   }
 
 }
+
+exports.GetAllUser = (req, res) => {
+    models.User.findAll({raw : true})
+        .then(result => {
+            res.send({
+                status : 200,
+                data : result
+            })
+        }).catch(err => {
+            res.send({
+                status : 500,
+                message : err
+            })
+        })
+}
