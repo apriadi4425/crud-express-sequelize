@@ -64,3 +64,19 @@ exports.GetAllUser = (req, res) => {
             })
         })
 }
+
+exports.GetById = (req, res) => {
+    const IdUser = req.params.id
+    models.User.findOne({where : {id : IdUser}})
+        .then(result => {
+            res.send({
+                status : 200,
+                data : result
+            })
+        }).catch(err => {
+            res.send({
+                status : 500,
+                message : err
+            })
+        })
+}
