@@ -80,3 +80,22 @@ exports.GetById = (req, res) => {
             })
         })
 }
+
+
+exports.UpdateUser = (req, res) => {
+    const IdUser = req.params.id
+    const { username, email, name } = req.body
+
+    models.User.update({username, email, name}, {where : {id : IdUser}})
+        .then(() => {
+            res.send({
+                status : 200,
+                message : 'Berhasil mengubah'
+            })
+        }).catch(err => {
+            res.send({
+                status : 500,
+                message : err
+            })
+        })
+}
