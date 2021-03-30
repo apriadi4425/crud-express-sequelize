@@ -6,6 +6,6 @@ dotenv.config();
 
 const user = require('./user')
 
-router.use('user', user)
+router.use('/user', user)
 
 module.exports = router;
